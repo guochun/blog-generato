@@ -1,7 +1,7 @@
 ---
 title: CSS如何实现元素居中
-date: 2018-08-07 12:52:43
-tags:CSS
+date: 2018-08-07 13:04:37
+tags: CSS
 ---
 
 完整CSS实现的居中的技巧。我只是文章的搬运工完整代码来自[CSS TRICKS](https://css-tricks.com/centering-css-complete-guide/)。  
@@ -9,12 +9,14 @@ tags:CSS
 居中的问题一直都是CSS开发者抱怨的典型问题。为什么它会这么难呢?我认为这种问题不是很难的但是在不同的场合又会出现很多种情况。很难让我们知道如何去解决。接下来让我们通过决策树让它变得简单一点。  
 我需要居中...
 
-## - **水平居中**   
+## - **水平居中**
 
 ### 1: 内联元素(文本或者链接)
+
 你可以让内联元素水平居中,通过设置块级父元素text-align: center 代码看下面。  
 
 **html**
+
 ```
 <body>
     <header>
@@ -28,6 +30,7 @@ tags:CSS
     </nav>
 </body>
 ```
+
 **css**  
 
 ```
@@ -54,9 +57,11 @@ nav a {
 可以用于 inline inline-block inline-table inline-flex 等等
 
 ### 2: 块级元素
+
 让块级元素居中可以给它设置margin-left 和 margin-right属性为auto(如果没有设置宽度它会占据浏览器的宽度也不需要居中)和我经常可以简写类似下面的代码:
 
 **html**
+
 ```
 <body>
     <main>
@@ -66,6 +71,7 @@ nav a {
     </main>
 </body>
 ```
+
 **css**  
 
 ```
@@ -87,13 +93,16 @@ main {
     color: white;
 }
 ```
+
 无论你要居中的元素或者父元素的宽度如何都会起作用。  
 **注意:你不能设置它们浮动(float)**  
 
-### 3: 多个块级元素  
+### 3: 多个块级元素
+
 如果你想让两个或者两个以上的块级元素在一行水平居中。你可以设置不同的display属性值。这里有一个设置它们inline-block例子和一个flexbox的例子。  
 
 **html**
+
 ```
 <body>
     <main class="inline-block-center">
@@ -121,6 +130,7 @@ main {
     </main>
 </body>
 ```
+
 **css**  
 
 ```
@@ -157,6 +167,7 @@ main div {
     justify-content:center;
 }
 ```
+
 如果你希望多个块级元素叠加在一起的这种情况 margin: auto 技术仍然有用。  
 
 **html**
@@ -177,6 +188,7 @@ main div {
     </main>
 </body>
 ```
+
 **css**
 
 ```
@@ -214,9 +226,9 @@ main div:nth-child(3) {
 }
 ```
 
-## 垂直居中  
+## 垂直居中
 
-### 1: 内联元素(文本或者链接)  
+### 1: 内联元素(文本或者链接)
 
 #### 一行垂直居中
 
@@ -234,6 +246,7 @@ main div:nth-child(3) {
     </main>
 </body>
 ```
+
 **css**
 
 ```
@@ -269,6 +282,7 @@ html
     </main>
 </body>
 ```
+
 css
 
 ```
@@ -295,6 +309,7 @@ main div {
 ```
 
 #### 多行垂直居中
+
 设置padding-bottom和padding-top相等对于多行文本也能实现垂直居中的效果。但是如果没有预期的效果,可能是这个元素的文本可能是一个tablecell,无论是这么样,vertical-align属性都可以处理,在这种境况可能不像处理普通的文本一样处理一行的居中。
 
 **html**
@@ -309,6 +324,7 @@ main div {
     <p>I'm vertically centered multiple lines of text in a CSS-created table layout.</p>
 </div>
 ```
+
 **css**
 
 ```
@@ -347,6 +363,7 @@ table td {
     vertical-align: middle;
 }
 ```
+
 你也可以使用flexbox，一个单独的flex-child很简单的可以做到以flex-parent居中。
 
 **html**
@@ -358,6 +375,7 @@ table td {
     </div>
 </body>
 ```
+
 **css**
 
 ```
@@ -386,6 +404,7 @@ div {
     padding: 20px;
 }
 ```
+
 请记住重要的一点,父容器要具有固定高度（px，％等）也就是包含要居中的元素要有高度。除了这两种技术,您可以使用“ghost元素”技术,将full-height伪元素放置在容器内，文本与该文本垂直对齐。
 
 **html**
@@ -395,6 +414,7 @@ div {
     <p>I'm vertically centered multiple lines of text in a container. Centered with a ghost pseudo element</p>
 </div>  
 ```
+
 **css**
 
 ```
@@ -434,10 +454,10 @@ div {
 }
 ```
 
-
 ### 2：块级元素
 
 #### 元素的高度已知
+
 但如果你知道高度，你可以垂直居中，如：
 
 **html**
@@ -482,6 +502,7 @@ div {
 ```
 
 #### 元素的高度未知
+
 已知元素的高度可以
 
 **html**
@@ -526,7 +547,6 @@ main div {
 }
 ```
 
-
 #### 使用弹性盒(flexbox)
 
 使用flexbox可以非常简单的实现
@@ -570,9 +590,11 @@ main div {
   overflow: auto;
 }
 ```
-## - **水平居中并且垂直居中** 
 
-### 固定的宽度和高度 
+## - **水平居中并且垂直居中**
+
+### 固定的宽度和高度
+
 使用等于宽度和高度一半的负外边距在相对定位50%处,有跨浏览器作用。
 
 **html**
@@ -584,6 +606,7 @@ main div {
     </div>    
 </main>
 ```
+
 **css**
 
 ```
@@ -618,6 +641,7 @@ main div {
 ```
 
 ### 未知的高度和宽度
+
 如果你不知道高度还有宽度你可以使用trasform属性基于当前的元素的高度和宽度traslate -50%。 
 
 **html**
@@ -629,6 +653,7 @@ main div {
     </div>       
 </main>
 ```
+
 **css**
 
 ```
@@ -676,6 +701,7 @@ main div {
     </main>
 </body>
 ```
+
 **css**
 
 ```
@@ -716,7 +742,9 @@ main div {
 <span>
     I'm centered!
 </span>
+
 ```
+
 **css**
 
 ```
@@ -728,8 +756,8 @@ span {
  margin: auto;
 }
 
-```
 
+```
 
 
 
