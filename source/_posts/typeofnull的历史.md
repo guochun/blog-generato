@@ -1,7 +1,7 @@
 ---
 title: typeof null的历史
-date: 2018-08-27 19:51:48
-tags:JS
+date: 2018-08-27 20:15:45
+tags: JS
 ---
 
  在javaScript, =='typeof null is object'== 于是让一些人误认为*null*是一个对象(null不是对象,它是一个原生类型)。这是一个bug而且很不辛运的是不能被修复。因为这 样会打破先存在的代码。下面让我们探索bug的历史吧。   
